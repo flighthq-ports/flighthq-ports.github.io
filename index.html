@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Browser demos and examples ported to the Flight SDK." />
+    <title>Flight SDK Ports</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --fg: #16181d;
+        --dim: #6b7280;
+        --bg: #fbfbfc;
+        --card: #fff;
+        --line: #e5e7eb;
+        --shot: #eef0f3;
+        --focus: #2563eb;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --fg: #e8eaed;
+          --dim: #9aa0aa;
+          --bg: #131417;
+          --card: #1b1d22;
+          --line: #2a2d34;
+          --shot: #23262c;
+          --focus: #7fb2ff;
+        }
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 3rem 1.5rem;
+        background: var(--bg);
+        color: var(--fg);
+        font: 15px/1.5 ui-sans-serif, system-ui, -apple-system, sans-serif;
+      }
+
+      main { max-width: 62rem; margin: 0 auto; }
+      h1 { font-size: 1.5rem; margin: 0 0 .35rem; letter-spacing: -.01em; }
+      .lede { color: var(--dim); margin: 0 0 2.5rem; max-width: 46rem; }
+
+      .grid {
+        display: grid;
+        column-gap: .9rem;
+        row-gap: 1.8rem;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      }
+
+      .item { display: flex; min-width: 0; flex-direction: column; }
+      .frame {
+        display: block;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: .5rem;
+        overflow: hidden;
+        transition: border-color .12s, transform .12s;
+      }
+      .frame:hover { border-color: var(--dim); transform: translateY(-1px); }
+      .frame:focus-visible, .cap:focus-visible, .repo:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 3px;
+      }
+
+      .shot {
+        position: relative;
+        display: block;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: var(--shot) center/cover no-repeat;
+      }
+      .shot::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        box-shadow: inset 0 0 0 1px rgb(255 255 255 / .04);
+        pointer-events: none;
+      }
+      .starling { background-image: url("starling-demo/textures/1x/background.jpg"); }
+      .openfl { background-image: url("openfl-samples/thumbs/nyan-cat.png"); }
+      .awayjs { background-image: url("awayjs-examples/thumbs/sponza-demo.png"); }
+
+      .cap, .det { padding-left: 3px; }
+      .cap {
+        display: block;
+        margin-top: .65rem;
+        color: var(--fg);
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .cap:hover { text-decoration: underline; }
+      .det { margin-top: .2rem; color: var(--dim); font: .7rem/1.5 ui-monospace, monospace; }
+      .repo { color: var(--dim); text-decoration: none; }
+      .repo:hover { color: var(--fg); }
+      .sep { margin: 0 .12rem; color: var(--dim); opacity: .4; }
+
+      @media (prefers-reduced-motion: reduce) {
+        .frame { transition: none; }
+        .frame:hover { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Flight SDK Ports</h1>
+      <p class="lede">Interactive demos and sample galleries ported to Flight. Choose a collection to run the examples in your browser.</p>
+
+      <div class="grid">
+        <article class="item">
+          <a class="frame" href="starling-demo/" aria-label="Open Starling Demo">
+            <span class="shot starling"></span>
+          </a>
+          <a class="cap" href="starling-demo/">Starling Demo</a>
+          <div class="det">
+            <span>interactive demo</span><span class="sep">·</span><a class="repo" href="https://github.com/flighthq-ports/starling-demo">source</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <a class="frame" href="openfl-samples/" aria-label="Open OpenFL Samples">
+            <span class="shot openfl"></span>
+          </a>
+          <a class="cap" href="openfl-samples/">OpenFL Samples</a>
+          <div class="det">
+            <span>26 samples</span><span class="sep">·</span><a class="repo" href="https://github.com/flighthq-ports/openfl-samples">source</a>
+          </div>
+        </article>
+
+        <article class="item">
+          <a class="frame" href="awayjs-examples/" aria-label="Open AwayJS Examples">
+            <span class="shot awayjs"></span>
+          </a>
+          <a class="cap" href="awayjs-examples/">AwayJS Examples</a>
+          <div class="det">
+            <span>26 examples</span><span class="sep">·</span><a class="repo" href="https://github.com/flighthq-ports/awayjs-examples">source</a>
+          </div>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>
