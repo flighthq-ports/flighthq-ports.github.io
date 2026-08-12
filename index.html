@@ -80,8 +80,20 @@
         pointer-events: none;
       }
       .starling { background-image: url("starling-demo/textures/1x/background.jpg"); }
-      .openfl { background-image: url("openfl-samples/thumbs/nyan-cat.png"); }
-      .awayjs { background-image: url("awayjs-examples/thumbs/sponza-demo.png"); }
+      .starling::before {
+        position: absolute;
+        z-index: 1;
+        top: 17%;
+        left: 50%;
+        width: 82%;
+        aspect-ratio: 320 / 143;
+        content: "";
+        background: url("starling-demo/textures/1x/atlas.png") .14% .11% / 320% auto no-repeat;
+        filter: drop-shadow(0 .35rem .5rem rgb(21 76 94 / .18));
+        transform: translateX(-50%);
+      }
+      .openfl { background-image: url("openfl-samples/thumbs/adding-animation.png"); }
+      .awayjs { background-image: url("awayjs-examples/thumbs/aircraft-demo.png"); }
 
       .cap, .det { padding-left: 3px; }
       .cap {
